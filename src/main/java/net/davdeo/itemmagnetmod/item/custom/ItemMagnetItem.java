@@ -54,7 +54,7 @@ public class ItemMagnetItem extends Item {
 
     @Override
     public boolean isFoil(ItemStack stack) {
-        return ItemMagnetHelper.getIsActive(stack);
+        return false;
     }
 
     @Override
