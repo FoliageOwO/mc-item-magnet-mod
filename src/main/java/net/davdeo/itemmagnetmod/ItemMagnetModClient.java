@@ -9,6 +9,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 
 public class ItemMagnetModClient implements ClientModInitializer {
+	private static final int INACTIVE_MESSAGE_TICKS = 20;
+
+	private boolean hadActiveMagnetLastTick = false;
+	private int inactiveMessageTicksRemaining = 0;
 
 	@Override
 	public void onInitializeClient() {
@@ -20,7 +24,13 @@ public class ItemMagnetModClient implements ClientModInitializer {
 			return;
 		}
 
-		if (ItemMagnetHelper.getFirstActiveMagnetInventoryIndex(minecraft.player) != -1) {
+		boolean hasActiveMagnet = ItemMagnetHelper.getFirstActiveMagnetInventoryIndex(minecraft.player) != -1;
+
+		if (!hasActiveMagnet && hadActiveMagnetLastTick) {
+			inactiveMessageTicksRemaining = INACTIVE_MESSAGE_TICKS;
+		}
+
+		if (hasActiveMagnet) {
 			minecraft.gui.setOverlayMessage(
 					Component.literal("Item Magnet: ")
 							.withStyle(ChatFormatting.WHITE)
@@ -30,6 +40,17 @@ public class ItemMagnetModClient implements ClientModInitializer {
 									.withStyle(ChatFormatting.WHITE)),
 					false
 			);
+		} else if (inactiveMessageTicksRemaining > 0) {
+			minecraft.gui.setOverlayMessage(
+					Component.literal("Item Magnet: ")
+							.withStyle(ChatFormatting.WHITE)
+							.append(Component.translatable("actionbar.itemmagnetmod.item_magnet.not_active")
+									.withStyle(ChatFormatting.GRAY)),
+					false
+			);
+			inactiveMessageTicksRemaining--;
 		}
+
+		hadActiveMagnetLastTick = hasActiveMagnet;
 	}
 }
