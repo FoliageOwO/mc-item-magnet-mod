@@ -25,18 +25,21 @@ public class ItemMagnetModClient implements ClientModInitializer {
 		}
 
 		boolean hasActiveMagnet = ItemMagnetHelper.getFirstActiveMagnetInventoryIndex(minecraft.player) != -1;
+		int pickupDistance = 0;
 
 		if (!hasActiveMagnet && hadActiveMagnetLastTick) {
 			inactiveMessageTicksRemaining = INACTIVE_MESSAGE_TICKS;
 		}
 
 		if (hasActiveMagnet) {
+			pickupDistance = ItemMagnetHelper.getPickupDistance(minecraft.player, ItemMagnetHelper.getFirstActiveMagnet(minecraft.player));
+
 			minecraft.gui.setOverlayMessage(
 					Component.literal("Item Magnet: ")
 							.withStyle(ChatFormatting.WHITE)
 							.append(Component.translatable("actionbar.itemmagnetmod.item_magnet.active")
 									.withStyle(ChatFormatting.GREEN))
-							.append(Component.literal(" (" + ModConfig.magnetDistance + " blocks)")
+							.append(Component.literal(" (" + pickupDistance + " blocks)")
 									.withStyle(ChatFormatting.WHITE)),
 					false
 			);

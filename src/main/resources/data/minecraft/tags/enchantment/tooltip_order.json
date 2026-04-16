@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "itemmagnetmod:magnetic_reserve"
+    "itemmagnetmod:magnetic_reserve",
+    "itemmagnetmod:magnetic_reach"
   ]
 }

@@ -44,10 +44,14 @@ public class ModLootTableModifier {
     }
 
     private static LootPoolEntryContainer.Builder<?> magnetEnchantmentBook(HolderLookup.Provider registries) {
+        return magnetEnchantmentBook(registries, ModEnchantments.MAGNETIC_RESERVE);
+    }
+
+    private static LootPoolEntryContainer.Builder<?> magnetEnchantmentBook(HolderLookup.Provider registries, ResourceKey<net.minecraft.world.item.enchantment.Enchantment> enchantmentKey) {
         return LootItem.lootTableItem(Items.BOOK)
                 .apply(EnchantRandomlyFunction.randomEnchantment()
                         .withEnchantment(
-                                registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(ModEnchantments.MAGNETIC_RESERVE)
+                                registries.lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(enchantmentKey)
                         ));
     }
 
@@ -95,6 +99,10 @@ public class ModLootTableModifier {
                         .setRolls(ConstantValue.exactly(1))
                         .when(LootItemRandomChanceCondition.randomChance(0.12f))
                         .add(magnetEnchantmentBook(registries)));
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(LootItemRandomChanceCondition.randomChance(0.08f))
+                        .add(magnetEnchantmentBook(registries, ModEnchantments.MAGNETIC_REACH)));
             }
 
             if (ModConfig.canFindInAncientCity && BuiltInLootTables.ANCIENT_CITY.equals(id)) {
@@ -102,6 +110,10 @@ public class ModLootTableModifier {
                         .setRolls(ConstantValue.exactly(1))
                         .when(LootItemRandomChanceCondition.randomChance(0.18f))
                         .add(magnetEnchantmentBook(registries)));
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(LootItemRandomChanceCondition.randomChance(0.12f))
+                        .add(magnetEnchantmentBook(registries, ModEnchantments.MAGNETIC_REACH)));
             }
 
             if (ModConfig.canFindInEndCity && BuiltInLootTables.END_CITY_TREASURE.equals(id)) {
@@ -109,6 +121,10 @@ public class ModLootTableModifier {
                         .setRolls(ConstantValue.exactly(1))
                         .when(LootItemRandomChanceCondition.randomChance(0.12f))
                         .add(magnetEnchantmentBook(registries)));
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(LootItemRandomChanceCondition.randomChance(0.08f))
+                        .add(magnetEnchantmentBook(registries, ModEnchantments.MAGNETIC_REACH)));
             }
 
             if (ModConfig.canFindInStrongholdLibrary && BuiltInLootTables.STRONGHOLD_LIBRARY.equals(id)) {
@@ -116,6 +132,10 @@ public class ModLootTableModifier {
                         .setRolls(ConstantValue.exactly(1))
                         .when(LootItemRandomChanceCondition.randomChance(0.2f))
                         .add(magnetEnchantmentBook(registries)));
+                tableBuilder.withPool(LootPool.lootPool()
+                        .setRolls(ConstantValue.exactly(1))
+                        .when(LootItemRandomChanceCondition.randomChance(0.14f))
+                        .add(magnetEnchantmentBook(registries, ModEnchantments.MAGNETIC_REACH)));
             }
         }));
     }

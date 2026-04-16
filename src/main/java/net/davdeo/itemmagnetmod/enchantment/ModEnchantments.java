@@ -15,4 +15,9 @@ public final class ModEnchantments {
             Registries.ENCHANTMENT,
             Identifier.fromNamespaceAndPath(ItemMagnetMod.MOD_ID, "magnetic_reserve")
     );
+
+    public static final ResourceKey<Enchantment> MAGNETIC_REACH = ResourceKey.create(
+            Registries.ENCHANTMENT,
+            Identifier.fromNamespaceAndPath(ItemMagnetMod.MOD_ID, "magnetic_reach")
+    );
 }

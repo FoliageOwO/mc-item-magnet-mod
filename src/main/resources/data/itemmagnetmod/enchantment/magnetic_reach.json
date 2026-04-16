@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 5,
+  "description": {
+    "translate": "enchantment.itemmagnetmod.magnetic_reach"
+  },
+  "effects": {},
+  "max_cost": {
+    "base": 28,
+    "per_level_above_first": 14
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 14
+  },
+  "slots": [
+    "any"
+  ],
+  "supported_items": "#itemmagnetmod:enchantable/magnetic_reach",
+  "weight": 1
+}

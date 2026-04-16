@@ -30,6 +30,10 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
 
 	@Unique
 	private double getPickupDistance() {
+		if (this.target != null) {
+			return ItemMagnetHelper.getPickupDistance(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
+		}
+
 		return ModConfig.magnetDistance;
 	}
 
