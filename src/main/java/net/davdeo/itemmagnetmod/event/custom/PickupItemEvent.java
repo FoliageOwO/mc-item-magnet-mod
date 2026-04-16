@@ -1,17 +1,22 @@
 package net.davdeo.itemmagnetmod.event.custom;
 
 import net.davdeo.itemmagnetmod.ItemMagnetMod;
+import net.davdeo.itemmagnetmod.enchantment.ModEnchantments;
 import net.davdeo.itemmagnetmod.item.ModItems;
 import net.davdeo.itemmagnetmod.util.ItemMagnetHelper;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.davdeo.itemmagnetmod.config.ModConfig;
 
 public interface PickupItemEvent {
@@ -54,7 +59,7 @@ public interface PickupItemEvent {
             serverPlayer = serverPlayerEntity;
         }
 
-        int damageToApply = pickedUpItemsCount;
+        int damageToApply = getMagnetDamageToApply(player, activeMagnet, pickedUpItemsCount);
         int newDamage = activeMagnet.getDamageValue() + damageToApply;
 
 
@@ -80,5 +85,22 @@ public interface PickupItemEvent {
         }
 
         return InteractionResult.PASS;
+    }
+
+    private static int getMagnetDamageToApply(Player player, ItemStack activeMagnet, int pickedUpItemsCount) {
+        Holder<Enchantment> enchantmentHolder = player.level()
+                .registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(ModEnchantments.MAGNETIC_RESERVE);
+
+        int magneticReserveLevel = EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, activeMagnet);
+
+        if (magneticReserveLevel <= 0) {
+            return pickedUpItemsCount;
+        }
+
+        // Each level increases effective durability by 50%.
+        double durabilityMultiplier = 1.0 + (magneticReserveLevel * 0.5);
+        return Math.max(1, (int)Math.ceil(pickedUpItemsCount / durabilityMultiplier));
     }
 }

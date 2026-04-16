@@ -2,6 +2,7 @@ package net.davdeo.itemmagnetmod.item;
 
 import net.davdeo.itemmagnetmod.ItemMagnetMod;
 import net.davdeo.itemmagnetmod.component.ModComponents;
+import net.minecraft.core.component.DataComponents;
 import net.davdeo.itemmagnetmod.item.custom.ItemMagnetItem;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -9,6 +10,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantable;
 
 import net.davdeo.itemmagnetmod.config.ModConfig;
 
@@ -30,6 +32,7 @@ public class ModItems {
                     new Item.Properties()
                             .setId(ITEM_MAGNET_KEY)
                             .durability(MAGNET_DURABILITY)
+                            .component(DataComponents.ENCHANTABLE, new Enchantable(10))
                             .component(ModComponents.ITEM_MAGNET_ITEM_IS_ACTIVE_COMPONENT, false)
             ),
             ITEM_MAGNET_KEY
