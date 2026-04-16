@@ -4,6 +4,8 @@ import net.davdeo.itemmagnetmod.util.ItemMagnetHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -29,6 +31,17 @@ public class ItemMagnetItem extends Item {
 
         if(!world.isClientSide()) {
             ItemMagnetHelper.toggleIsActive(itemStack);
+            boolean isActive = ItemMagnetHelper.getIsActive(itemStack);
+
+            if (!isActive && player instanceof ServerPlayer serverPlayer) {
+                serverPlayer.connection.send(new ClientboundSetActionBarTextPacket(
+                        Component.literal("Item Magnet: ")
+                                .withStyle(ChatFormatting.WHITE)
+                                .append(Component.translatable(
+                                        "actionbar.itemmagnetmod.item_magnet.not_active"
+                                ).withStyle(ChatFormatting.GRAY))
+                ));
+            }
         }
 
         if (consumableComponent != null) {
