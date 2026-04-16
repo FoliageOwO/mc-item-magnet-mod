@@ -38,6 +38,15 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
 	}
 
 	@Unique
+	private double getPickupSpeedMultiplier() {
+		if (this.target != null) {
+			return ItemMagnetHelper.getPickupSpeedMultiplier(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
+		}
+
+		return 1.0;
+	}
+
+	@Unique
 	private double getSquaredPickupDistance() {
 		double distance = getPickupDistance();
 		return distance * distance;
@@ -113,7 +122,8 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
 
 			if (squaredTargetEyeDistance < currentSquaredPickupDistance) {
 				double relativeTargetEyeDistance = 1.0 - Math.sqrt(squaredTargetEyeDistance) / currentPickupDistance;
-				thisObj.setDeltaMovement(thisObj.getDeltaMovement().add(targetEyeVector.normalize().scale(relativeTargetEyeDistance * relativeTargetEyeDistance * 0.1)));
+				double speedMultiplier = this.getPickupSpeedMultiplier();
+				thisObj.setDeltaMovement(thisObj.getDeltaMovement().add(targetEyeVector.normalize().scale(relativeTargetEyeDistance * relativeTargetEyeDistance * 0.1 * speedMultiplier)));
 			}
 		}
 

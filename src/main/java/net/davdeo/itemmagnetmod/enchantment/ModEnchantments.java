@@ -20,4 +20,9 @@ public final class ModEnchantments {
             Registries.ENCHANTMENT,
             Identifier.fromNamespaceAndPath(ItemMagnetMod.MOD_ID, "magnetic_reach")
     );
+
+    public static final ResourceKey<Enchantment> MAGNETIC_PULL = ResourceKey.create(
+            Registries.ENCHANTMENT,
+            Identifier.fromNamespaceAndPath(ItemMagnetMod.MOD_ID, "magnetic_pull")
+    );
 }

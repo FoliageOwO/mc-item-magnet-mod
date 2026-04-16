@@ -80,11 +80,24 @@ public class ItemMagnetHelper {
         return ModConfig.magnetDistance + (getMagneticReachLevel(player, stack) * 4);
     }
 
+    public static double getPickupSpeedMultiplier(Player player, ItemStack stack) {
+        return 1.0 + (getMagneticPullLevel(player, stack) * 0.2);
+    }
+
     private static int getMagneticReachLevel(Player player, ItemStack stack) {
         Holder<Enchantment> enchantmentHolder = player.level()
                 .registryAccess()
                 .lookupOrThrow(Registries.ENCHANTMENT)
                 .getOrThrow(ModEnchantments.MAGNETIC_REACH);
+
+        return EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
+    }
+
+    private static int getMagneticPullLevel(Player player, ItemStack stack) {
+        Holder<Enchantment> enchantmentHolder = player.level()
+                .registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(ModEnchantments.MAGNETIC_PULL);
 
         return EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
     }
