@@ -80,8 +80,40 @@ public class ItemMagnetHelper {
         return ModConfig.magnetDistance + (getMagneticReachLevel(player, stack) * 4);
     }
 
-    public static double getPickupSpeedMultiplier(Player player, ItemStack stack) {
-        return 1.0 + (getMagneticPullLevel(player, stack) * 0.2);
+    public static double getPickupPullStrength(Player player, ItemStack stack) {
+        return switch (getMagneticPullLevel(player, stack)) {
+            case 1 -> 0.18;
+            case 2 -> 0.24;
+            case 3 -> 0.30;
+            default -> 0.12;
+        };
+    }
+
+    public static double getPickupBaseForce(Player player, ItemStack stack) {
+        return switch (getMagneticPullLevel(player, stack)) {
+            case 1 -> 0.05;
+            case 2 -> 0.07;
+            case 3 -> 0.09;
+            default -> 0.03;
+        };
+    }
+
+    public static double getPickupMaxSpeed(Player player, ItemStack stack) {
+        return switch (getMagneticPullLevel(player, stack)) {
+            case 1 -> 0.24;
+            case 2 -> 0.30;
+            case 3 -> 0.36;
+            default -> 0.18;
+        };
+    }
+
+    public static int getMagneticPullLevel(Player player, ItemStack stack) {
+        Holder<Enchantment> enchantmentHolder = player.level()
+                .registryAccess()
+                .lookupOrThrow(Registries.ENCHANTMENT)
+                .getOrThrow(ModEnchantments.MAGNETIC_PULL);
+
+        return EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
     }
 
     private static int getMagneticReachLevel(Player player, ItemStack stack) {
@@ -93,12 +125,4 @@ public class ItemMagnetHelper {
         return EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
     }
 
-    private static int getMagneticPullLevel(Player player, ItemStack stack) {
-        Holder<Enchantment> enchantmentHolder = player.level()
-                .registryAccess()
-                .lookupOrThrow(Registries.ENCHANTMENT)
-                .getOrThrow(ModEnchantments.MAGNETIC_PULL);
-
-        return EnchantmentHelper.getItemEnchantmentLevel(enchantmentHolder, stack);
-    }
 }

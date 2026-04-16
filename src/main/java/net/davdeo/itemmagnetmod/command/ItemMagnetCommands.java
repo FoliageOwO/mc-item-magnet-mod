@@ -2,11 +2,13 @@ package net.davdeo.itemmagnetmod.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.davdeo.itemmagnetmod.config.ModConfig;
+import net.davdeo.itemmagnetmod.debug.ItemMagnetDebugManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerPlayer;
 
 public final class ItemMagnetCommands {
     private ItemMagnetCommands() {
@@ -19,7 +21,12 @@ public final class ItemMagnetCommands {
                 .then(Commands.literal("reload")
                         .executes(context -> reload(context.getSource())))
                 .then(Commands.literal("status")
-                        .executes(context -> status(context.getSource()))));
+                        .executes(context -> status(context.getSource())))
+                .then(Commands.literal("debug")
+                        .then(Commands.literal("on")
+                                .executes(context -> setDebug(context.getSource(), true)))
+                        .then(Commands.literal("off")
+                                .executes(context -> setDebug(context.getSource(), false)))));
     }
 
     private static int reload(CommandSourceStack source) {
@@ -33,6 +40,22 @@ public final class ItemMagnetCommands {
 
     private static int status(CommandSourceStack source) {
         source.sendSuccess(ItemMagnetCommands::buildStatusMessage, false);
+        return 1;
+    }
+
+    private static int setDebug(CommandSourceStack source, boolean enabled) {
+        if (!(source.getEntity() instanceof ServerPlayer player)) {
+            source.sendFailure(Component.literal("This command can only be used by a player.")
+                    .withStyle(ChatFormatting.RED));
+            return 0;
+        }
+
+        boolean changed = ItemMagnetDebugManager.setEnabled(player, enabled);
+
+        source.sendSuccess(() -> Component.literal(enabled
+                        ? (changed ? "Item Magnet debug enabled." : "Item Magnet debug is already enabled.")
+                        : (changed ? "Item Magnet debug disabled." : "Item Magnet debug is already disabled."))
+                .withStyle(enabled ? ChatFormatting.YELLOW : ChatFormatting.GRAY), false);
         return 1;
     }
 

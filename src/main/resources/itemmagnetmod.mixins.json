@@ -2,6 +2,9 @@
 	"required": true,
 	"package": "net.davdeo.itemmagnetmod.mixin",
 	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"GuiMixin"
+	],
 	"mixins": [
 		"AnvilMenuMixin",
 		"ItemEntityMixin"

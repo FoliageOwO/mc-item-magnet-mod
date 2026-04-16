@@ -10,6 +10,9 @@ import net.minecraft.network.chat.Component;
 
 public class ItemMagnetModClient implements ClientModInitializer {
 	private static final int INACTIVE_MESSAGE_TICKS = 20;
+	private static final int DEBUG_OVERLAY_SUPPRESS_TICKS = 6;
+
+	private static int debugOverlaySuppressTicksRemaining = 0;
 
 	private boolean hadActiveMagnetLastTick = false;
 	private int inactiveMessageTicksRemaining = 0;
@@ -24,6 +27,10 @@ public class ItemMagnetModClient implements ClientModInitializer {
 			return;
 		}
 
+		if (debugOverlaySuppressTicksRemaining > 0) {
+			debugOverlaySuppressTicksRemaining--;
+		}
+
 		boolean hasActiveMagnet = ItemMagnetHelper.getFirstActiveMagnetInventoryIndex(minecraft.player) != -1;
 		int pickupDistance = 0;
 
@@ -31,7 +38,7 @@ public class ItemMagnetModClient implements ClientModInitializer {
 			inactiveMessageTicksRemaining = INACTIVE_MESSAGE_TICKS;
 		}
 
-		if (hasActiveMagnet) {
+		if (hasActiveMagnet && !isDebugOverlaySuppressed()) {
 			pickupDistance = ItemMagnetHelper.getPickupDistance(minecraft.player, ItemMagnetHelper.getFirstActiveMagnet(minecraft.player));
 
 			minecraft.gui.setOverlayMessage(
@@ -55,5 +62,17 @@ public class ItemMagnetModClient implements ClientModInitializer {
 		}
 
 		hadActiveMagnetLastTick = hasActiveMagnet;
+	}
+
+	public static boolean isDebugOverlayMessage(String text) {
+		return text.startsWith("Magnet Debug ");
+	}
+
+	public static void suppressActiveOverlay() {
+		debugOverlaySuppressTicksRemaining = DEBUG_OVERLAY_SUPPRESS_TICKS;
+	}
+
+	private static boolean isDebugOverlaySuppressed() {
+		return debugOverlaySuppressTicksRemaining > 0;
 	}
 }

@@ -3,6 +3,8 @@ package net.davdeo.itemmagnetmod.mixin;
 import net.davdeo.itemmagnetmod.event.custom.PickupItemEvent;
 import net.davdeo.itemmagnetmod.util.ItemMagnetHelper;
 import net.davdeo.itemmagnetmod.config.ModConfig;
+import net.davdeo.itemmagnetmod.debug.ItemMagnetDebugManager;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
@@ -38,18 +40,46 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
 	}
 
 	@Unique
-	private double getPickupSpeedMultiplier() {
+	private double getPickupPullStrength() {
 		if (this.target != null) {
-			return ItemMagnetHelper.getPickupSpeedMultiplier(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
+			return ItemMagnetHelper.getPickupPullStrength(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
 		}
 
-		return 1.0;
+		return 0.08;
+	}
+
+	@Unique
+	private double getPickupBaseForce() {
+		if (this.target != null) {
+			return ItemMagnetHelper.getPickupBaseForce(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
+		}
+
+		return 0.0;
+	}
+
+	@Unique
+	private double getPickupMaxSpeed() {
+		if (this.target != null) {
+			return ItemMagnetHelper.getPickupMaxSpeed(this.target, ItemMagnetHelper.getFirstActiveMagnet(this.target));
+		}
+
+		return 0.30;
 	}
 
 	@Unique
 	private double getSquaredPickupDistance() {
 		double distance = getPickupDistance();
 		return distance * distance;
+	}
+
+	@Unique
+	private Vec3 getTargetPoint() {
+		if (this.target == null) {
+			return Vec3.ZERO;
+		}
+
+		// Aim closer to the player's collision center than the upper body so items do not overshoot the pickup zone.
+		return this.target.getBoundingBox().getCenter().add(0.0, -this.target.getBbHeight() * 0.2, 0.0);
 	}
 
 
@@ -117,13 +147,41 @@ public abstract class ItemEntityMixin extends Entity implements TraceableEntity 
 		// add to velocity depending on how far the items are away -> increased velocity, the closer the items get#
 		// Following logic was taken from ExperienceOrbEntity and slightly modified.
 		if (this.target != null) {
-			Vec3 targetEyeVector = new Vec3(this.target.getX() - thisObj.getX(), this.target.getY() + this.target.getEyeHeight() / 2.0 - thisObj.getY(), this.target.getZ() - thisObj.getZ());
-			double squaredTargetEyeDistance = targetEyeVector.lengthSqr();
+			double currentSpeed = thisObj.getDeltaMovement().length();
+			Vec3 targetVector = this.getTargetPoint().subtract(thisObj.position());
+			double squaredTargetDistance = targetVector.lengthSqr();
 
-			if (squaredTargetEyeDistance < currentSquaredPickupDistance) {
-				double relativeTargetEyeDistance = 1.0 - Math.sqrt(squaredTargetEyeDistance) / currentPickupDistance;
-				double speedMultiplier = this.getPickupSpeedMultiplier();
-				thisObj.setDeltaMovement(thisObj.getDeltaMovement().add(targetEyeVector.normalize().scale(relativeTargetEyeDistance * relativeTargetEyeDistance * 0.1 * speedMultiplier)));
+			if (squaredTargetDistance < currentSquaredPickupDistance) {
+				double targetDistance = Math.sqrt(squaredTargetDistance);
+				double relativeTargetDistance = 1.0 - targetDistance / currentPickupDistance;
+				double pullStrength = this.getPickupPullStrength();
+				double baseForce = 0.02 + this.getPickupBaseForce();
+				double desiredSpeed = Math.min(this.getPickupMaxSpeed(), baseForce + (relativeTargetDistance * pullStrength));
+
+				// Slow the final approach earlier and harder so higher pull levels still converge cleanly.
+				boolean closeRangeCapApplied = false;
+				if (targetDistance < 4.0) {
+					double closeRangeSpeedCap = 0.04 + (targetDistance * 0.06);
+					if (desiredSpeed > closeRangeSpeedCap) {
+						desiredSpeed = closeRangeSpeedCap;
+						closeRangeCapApplied = true;
+					}
+				}
+
+				Vec3 desiredMovement = targetVector.normalize().scale(desiredSpeed);
+				thisObj.setDeltaMovement(desiredMovement);
+
+				if (this.target instanceof ServerPlayer serverPlayer && ItemMagnetDebugManager.isEnabled(serverPlayer)) {
+					ItemMagnetDebugManager.submitSnapshot(
+							serverPlayer,
+							ItemMagnetHelper.getMagneticPullLevel(serverPlayer, ItemMagnetHelper.getFirstActiveMagnet(serverPlayer)),
+							targetDistance,
+							desiredSpeed,
+							this.getPickupMaxSpeed(),
+							currentSpeed,
+							closeRangeCapApplied
+					);
+				}
 			}
 		}
 
