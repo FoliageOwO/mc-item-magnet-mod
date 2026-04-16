@@ -23,6 +23,9 @@
   "option.itemmagnetmod.magnet_durability": "Magnet durability",
   "tooltip.itemmagnetmod.magnet_durability": "Controls the durability of the magnet.\nRequires restart.",
 
+  "option.itemmagnetmod.iron_ingot_repair_amount": "Iron ingot repair amount",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "Controls how much durability one Iron Ingot restores in an anvil.",
+
   "option.itemmagnetmod.broken_magnet_stack": "Broken Magnet stack",
   "tooltip.itemmagnetmod.broken_magnet_stack": "Controls how many items in Broken Magnet stack.\nRequires restart.",
 

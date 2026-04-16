@@ -42,6 +42,7 @@ public final class ItemMagnetCommands {
                 .append(section("General"))
                 .append(line("Pickup Radius", ModConfig.magnetDistance + " blocks", ChatFormatting.GREEN))
                 .append(line("Magnet Durability", Integer.toString(ModConfig.magnetDurability), ChatFormatting.AQUA))
+                .append(line("Iron Repair Amount", Integer.toString(ModConfig.ironIngotRepairAmount), ChatFormatting.AQUA))
                 .append(line("Broken Magnet Stack", Integer.toString(ModConfig.brokenMagnetStack), ChatFormatting.AQUA))
                 .append(line("Magnet Core Stack", Integer.toString(ModConfig.magnetCoreStack), ChatFormatting.AQUA))
                 .append(line("Indestructible", onOff(ModConfig.isIndestructible), boolColor(ModConfig.isIndestructible)))
@@ -51,7 +52,7 @@ public final class ItemMagnetCommands {
                 .append(line("End City", onOff(ModConfig.canFindInEndCity), boolColor(ModConfig.canFindInEndCity)))
                 .append(line("Stronghold Library", onOff(ModConfig.canFindInStrongholdLibrary), boolColor(ModConfig.canFindInStrongholdLibrary)))
                 .append(section("Reload Notes"))
-                .append(line("Hot Reload", "Pickup radius and indestructible mode", ChatFormatting.YELLOW))
+                .append(line("Hot Reload", "Pickup radius, iron repair amount and indestructible mode", ChatFormatting.YELLOW))
                 .append(line("Restart Needed", "Durability, stack sizes, loot table registration", ChatFormatting.RED));
     }
 

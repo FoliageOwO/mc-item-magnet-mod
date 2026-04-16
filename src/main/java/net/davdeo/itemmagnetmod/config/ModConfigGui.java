@@ -33,6 +33,13 @@ public class ModConfigGui {
                 .setMin(1)
                 .build());
 
+        general.addEntry(entryBuilder.startIntField(Component.translatable("option.itemmagnetmod.iron_ingot_repair_amount"), ModConfig.ironIngotRepairAmount)
+                .setDefaultValue(32)
+                .setTooltip(Component.translatable("tooltip.itemmagnetmod.iron_ingot_repair_amount"))
+                .setSaveConsumer(newValue -> ModConfig.ironIngotRepairAmount = newValue)
+                .setMin(1)
+                .build());
+
         general.addEntry(entryBuilder.startIntField(Component.translatable("option.itemmagnetmod.broken_magnet_stack"), ModConfig.brokenMagnetStack)
                 .setDefaultValue(1)
                 .setTooltip(Component.translatable("tooltip.itemmagnetmod.broken_magnet_stack"))

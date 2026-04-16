@@ -11,6 +11,7 @@ public class ModConfig {
 
     public static int magnetDistance = 32;
     public static int magnetDurability = 1024;
+    public static int ironIngotRepairAmount = 32;
     public static int brokenMagnetStack = 1;
     public static int magnetCoreStack = 1;
     public static boolean isIndestructible = false;
@@ -29,6 +30,7 @@ public class ModConfig {
 
                 magnetDistance = getInt(properties, "magnetDistance", magnetDistance);
                 magnetDurability = getInt(properties, "magnetDurability", magnetDurability);
+                ironIngotRepairAmount = getInt(properties, "ironIngotRepairAmount", ironIngotRepairAmount);
                 brokenMagnetStack = getInt(properties, "brokenMagnetStack", brokenMagnetStack);
                 magnetCoreStack = getInt(properties, "magnetCoreStack", magnetCoreStack);
                 isIndestructible = getBool(properties, "isIndestructible", isIndestructible);
@@ -49,6 +51,7 @@ public class ModConfig {
         Properties properties = new Properties();
         properties.setProperty("magnetDistance", String.valueOf(magnetDistance));
         properties.setProperty("magnetDurability", String.valueOf(magnetDurability));
+        properties.setProperty("ironIngotRepairAmount", String.valueOf(ironIngotRepairAmount));
         properties.setProperty("brokenMagnetStack", String.valueOf(brokenMagnetStack));
         properties.setProperty("magnetCoreStack", String.valueOf(magnetCoreStack));
         properties.setProperty("isIndestructible", String.valueOf(isIndestructible));

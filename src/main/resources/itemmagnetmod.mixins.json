@@ -3,6 +3,7 @@
 	"package": "net.davdeo.itemmagnetmod.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"AnvilMenuMixin",
 		"ItemEntityMixin"
 	],
 	"injectors": {
