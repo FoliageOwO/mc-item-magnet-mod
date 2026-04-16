@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "磁鐵",
+  "item.itemmagnetmod.item_magnet.active": "已啟用",
+  "item.itemmagnetmod.item_magnet.not_active": "未啟用",
+  "actionbar.itemmagnetmod.item_magnet.active": "已啟用",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "未啟用",
+  "item.itemmagnetmod.item_magnet_broken": "損壞的磁鐵",
+  "item.itemmagnetmod.magnet_core": "磁鐵核心",
+  "enchantment.itemmagnetmod.magnetic_reserve": "磁能儲備",
+  "enchantment.itemmagnetmod.magnetic_reach": "磁能延展",
+  "enchantment.itemmagnetmod.magnetic_pull": "磁能牽引",
+
+  "itemgroup.item_magnet": "物品磁鐵模組",
+
+  "title.itemmagnetmod.config": "物品磁鐵模組設定",
+  "category.itemmagnetmod.general": "一般",
+  "category.itemmagnetmod.world_gen": "世界生成",
+
+  "option.itemmagnetmod.magnet_distance": "磁鐵範圍",
+  "tooltip.itemmagnetmod.magnet_distance": "控制磁鐵的吸附範圍。",
+
+  "option.itemmagnetmod.magnet_durability": "磁鐵耐久",
+  "tooltip.itemmagnetmod.magnet_durability": "控制磁鐵的耐久值。\n需要重新啟動。",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "鐵錠修復量",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "控制在鐵砧中每個鐵錠可為磁鐵恢復多少耐久。",
+
+  "option.itemmagnetmod.broken_magnet_stack": "損壞磁鐵堆疊數",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "控制損壞的磁鐵最大堆疊數。\n需要重新啟動。",
+
+  "option.itemmagnetmod.magnet_core_stack": "磁鐵核心堆疊數",
+  "tooltip.itemmagnetmod.magnet_core_stack": "控制磁鐵核心最大堆疊數。\n需要重新啟動。",
+
+  "option.itemmagnetmod.indestructible": "磁鐵不會損壞",
+  "tooltip.itemmagnetmod.indestructible": "控制磁鐵在吸取物品時是否會損耗並損壞。",
+
+  "option.itemmagnetmod.core_in_bastion": "堡壘遺跡中生成磁鐵核心",
+  "tooltip.itemmagnetmod.core_in_bastion": "控制磁鐵核心是否會生成於堡壘遺跡戰利品中。\n需要重新啟動。",
+
+  "option.itemmagnetmod.core_in_ancient_city": "遠古城市中生成磁鐵核心",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "控制磁鐵核心是否會生成於遠古城市戰利品中。\n需要重新啟動。",
+
+  "option.itemmagnetmod.core_in_end_city": "終界城中生成磁鐵核心",
+  "tooltip.itemmagnetmod.core_in_end_city": "控制磁鐵核心是否會生成於終界城戰利品中。\n需要重新啟動。",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "要塞圖書館中生成磁鐵核心",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "控制磁鐵核心是否會生成於要塞圖書館戰利品中。\n需要重新啟動。",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "這個模組為遊戲加入了一個物品磁鐵。它可以切換啟用或停用，並且每吸取一個物品都會消耗耐久。"
+}

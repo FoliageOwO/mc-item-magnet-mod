@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "Imán de objetos",
+  "item.itemmagnetmod.item_magnet.active": "Activo",
+  "item.itemmagnetmod.item_magnet.not_active": "Inactivo",
+  "actionbar.itemmagnetmod.item_magnet.active": "Activo",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "Inactivo",
+  "item.itemmagnetmod.item_magnet_broken": "Imán de objetos roto",
+  "item.itemmagnetmod.magnet_core": "Núcleo magnético",
+  "enchantment.itemmagnetmod.magnetic_reserve": "Reserva magnética",
+  "enchantment.itemmagnetmod.magnetic_reach": "Alcance magnético",
+  "enchantment.itemmagnetmod.magnetic_pull": "Atracción magnética",
+
+  "itemgroup.item_magnet": "Item Magnet Mod",
+
+  "title.itemmagnetmod.config": "Configuración de Item Magnet Mod",
+  "category.itemmagnetmod.general": "General",
+  "category.itemmagnetmod.world_gen": "Generación del mundo",
+
+  "option.itemmagnetmod.magnet_distance": "Alcance del imán",
+  "tooltip.itemmagnetmod.magnet_distance": "Controla la distancia a la que funciona el imán.",
+
+  "option.itemmagnetmod.magnet_durability": "Durabilidad del imán",
+  "tooltip.itemmagnetmod.magnet_durability": "Controla la durabilidad del imán.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "Reparación con lingote de hierro",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "Controla cuánta durabilidad restaura un lingote de hierro en un yunque.",
+
+  "option.itemmagnetmod.broken_magnet_stack": "Apilado del imán roto",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "Controla cuántos imanes rotos se pueden apilar.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.magnet_core_stack": "Apilado del núcleo magnético",
+  "tooltip.itemmagnetmod.magnet_core_stack": "Controla cuántos núcleos magnéticos se pueden apilar.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.indestructible": "El imán es indestructible",
+  "tooltip.itemmagnetmod.indestructible": "Controla si el imán se rompe al recoger objetos.",
+
+  "option.itemmagnetmod.core_in_bastion": "Núcleo magnético en bastiones",
+  "tooltip.itemmagnetmod.core_in_bastion": "Controla si el núcleo magnético puede aparecer en los bastiones.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.core_in_ancient_city": "Núcleo magnético en ciudades antiguas",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "Controla si el núcleo magnético puede aparecer en las ciudades antiguas.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.core_in_end_city": "Núcleo magnético en ciudades del End",
+  "tooltip.itemmagnetmod.core_in_end_city": "Controla si el núcleo magnético puede aparecer en las ciudades del End.\nRequiere reinicio.",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "Núcleo magnético en bibliotecas del stronghold",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "Controla si el núcleo magnético puede aparecer en las bibliotecas del stronghold.\nRequiere reinicio.",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "Este mod añade un imán de objetos al juego. Puede activarse o desactivarse y pierde durabilidad por cada objeto recogido."
+}

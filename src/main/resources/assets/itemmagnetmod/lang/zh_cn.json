@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "磁铁",
+  "item.itemmagnetmod.item_magnet.active": "已激活",
+  "item.itemmagnetmod.item_magnet.not_active": "未激活",
+  "actionbar.itemmagnetmod.item_magnet.active": "已激活",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "未激活",
+  "item.itemmagnetmod.item_magnet_broken": "损坏的磁铁",
+  "item.itemmagnetmod.magnet_core": "磁铁核心",
+  "enchantment.itemmagnetmod.magnetic_reserve": "磁能储备",
+  "enchantment.itemmagnetmod.magnetic_reach": "磁能延展",
+  "enchantment.itemmagnetmod.magnetic_pull": "磁能牵引",
+
+  "itemgroup.item_magnet": "物品磁铁模组",
+
+  "title.itemmagnetmod.config": "物品磁铁模组配置",
+  "category.itemmagnetmod.general": "常规",
+  "category.itemmagnetmod.world_gen": "世界生成",
+
+  "option.itemmagnetmod.magnet_distance": "磁铁范围",
+  "tooltip.itemmagnetmod.magnet_distance": "控制磁铁的吸附范围。",
+
+  "option.itemmagnetmod.magnet_durability": "磁铁耐久",
+  "tooltip.itemmagnetmod.magnet_durability": "控制磁铁的耐久值。\n需要重启。",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "铁锭修复量",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "控制在铁砧中每个铁锭可为磁铁恢复多少耐久。",
+
+  "option.itemmagnetmod.broken_magnet_stack": "损坏磁铁堆叠数",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "控制损坏的物品磁铁的最大堆叠数。\n需要重启。",
+
+  "option.itemmagnetmod.magnet_core_stack": "磁铁核心堆叠数",
+  "tooltip.itemmagnetmod.magnet_core_stack": "控制磁铁核心的最大堆叠数。\n需要重启。",
+
+  "option.itemmagnetmod.indestructible": "磁铁不会损坏",
+  "tooltip.itemmagnetmod.indestructible": "控制磁铁在吸取物品时是否会损耗并损坏。",
+
+  "option.itemmagnetmod.core_in_bastion": "堡垒遗迹中生成磁铁核心",
+  "tooltip.itemmagnetmod.core_in_bastion": "控制磁铁核心是否会生成在堡垒遗迹的战利品中。\n需要重启。",
+
+  "option.itemmagnetmod.core_in_ancient_city": "远古城市中生成磁铁核心",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "控制磁铁核心是否会生成在远古城市的战利品中。\n需要重启。",
+
+  "option.itemmagnetmod.core_in_end_city": "末地城中生成磁铁核心",
+  "tooltip.itemmagnetmod.core_in_end_city": "控制磁铁核心是否会生成在末地城的战利品中。\n需要重启。",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "要塞图书馆中生成磁铁核心",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "控制磁铁核心是否会生成在要塞图书馆的战利品中。\n需要重启。",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "这个模组向游戏中加入了一个物品磁铁。它可以启用或关闭，并且每吸取一个物品都会消耗一定耐久。"
+}

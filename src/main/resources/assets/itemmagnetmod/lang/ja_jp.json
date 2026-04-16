@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "アイテム磁石",
+  "item.itemmagnetmod.item_magnet.active": "有効",
+  "item.itemmagnetmod.item_magnet.not_active": "無効",
+  "actionbar.itemmagnetmod.item_magnet.active": "有効",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "無効",
+  "item.itemmagnetmod.item_magnet_broken": "壊れたアイテム磁石",
+  "item.itemmagnetmod.magnet_core": "磁石コア",
+  "enchantment.itemmagnetmod.magnetic_reserve": "磁力備蓄",
+  "enchantment.itemmagnetmod.magnetic_reach": "磁力拡張",
+  "enchantment.itemmagnetmod.magnetic_pull": "磁力牽引",
+
+  "itemgroup.item_magnet": "Item Magnet Mod",
+
+  "title.itemmagnetmod.config": "Item Magnet Mod 設定",
+  "category.itemmagnetmod.general": "一般",
+  "category.itemmagnetmod.world_gen": "ワールド生成",
+
+  "option.itemmagnetmod.magnet_distance": "磁石の範囲",
+  "tooltip.itemmagnetmod.magnet_distance": "磁石が機能する距離を設定します。",
+
+  "option.itemmagnetmod.magnet_durability": "磁石の耐久値",
+  "tooltip.itemmagnetmod.magnet_durability": "磁石の耐久値を設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "鉄インゴット修理量",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "金床で鉄インゴット1個につき回復する耐久値を設定します。",
+
+  "option.itemmagnetmod.broken_magnet_stack": "壊れた磁石のスタック数",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "壊れたアイテム磁石の最大スタック数を設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.magnet_core_stack": "磁石コアのスタック数",
+  "tooltip.itemmagnetmod.magnet_core_stack": "磁石コアの最大スタック数を設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.indestructible": "磁石を壊れなくする",
+  "tooltip.itemmagnetmod.indestructible": "アイテムを回収しても磁石が壊れないようにします。",
+
+  "option.itemmagnetmod.core_in_bastion": "砦の遺跡に磁石コアを生成",
+  "tooltip.itemmagnetmod.core_in_bastion": "砦の遺跡の戦利品に磁石コアを生成するかを設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.core_in_ancient_city": "古代都市に磁石コアを生成",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "古代都市の戦利品に磁石コアを生成するかを設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.core_in_end_city": "エンドシティに磁石コアを生成",
+  "tooltip.itemmagnetmod.core_in_end_city": "エンドシティの戦利品に磁石コアを生成するかを設定します。\n再起動が必要です。",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "要塞の図書館に磁石コアを生成",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "要塞の図書館の戦利品に磁石コアを生成するかを設定します。\n再起動が必要です。",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "この Mod はゲームにアイテム磁石を追加します。オン・オフを切り替えられ、アイテムを拾うたびに耐久を消費します。"
+}

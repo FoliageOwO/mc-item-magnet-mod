@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "Item-Magnet",
+  "item.itemmagnetmod.item_magnet.active": "Aktiv",
+  "item.itemmagnetmod.item_magnet.not_active": "Inaktiv",
+  "actionbar.itemmagnetmod.item_magnet.active": "Aktiv",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "Inaktiv",
+  "item.itemmagnetmod.item_magnet_broken": "Beschädigter Item-Magnet",
+  "item.itemmagnetmod.magnet_core": "Magnetkern",
+  "enchantment.itemmagnetmod.magnetic_reserve": "Magnetreserve",
+  "enchantment.itemmagnetmod.magnetic_reach": "Magnetreichweite",
+  "enchantment.itemmagnetmod.magnetic_pull": "Magnetzug",
+
+  "itemgroup.item_magnet": "Item Magnet Mod",
+
+  "title.itemmagnetmod.config": "Item Magnet Mod Konfiguration",
+  "category.itemmagnetmod.general": "Allgemein",
+  "category.itemmagnetmod.world_gen": "Weltgenerierung",
+
+  "option.itemmagnetmod.magnet_distance": "Magnetreichweite",
+  "tooltip.itemmagnetmod.magnet_distance": "Steuert, wie weit der Magnet wirkt.",
+
+  "option.itemmagnetmod.magnet_durability": "Magnet-Haltbarkeit",
+  "tooltip.itemmagnetmod.magnet_durability": "Steuert die Haltbarkeit des Magneten.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "Reparaturmenge durch Eisenbarren",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "Steuert, wie viel Haltbarkeit ein Eisenbarren im Amboss wiederherstellt.",
+
+  "option.itemmagnetmod.broken_magnet_stack": "Stackgröße beschädigter Magnet",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "Steuert die maximale Stackgröße beschädigter Magnete.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.magnet_core_stack": "Stackgröße Magnetkern",
+  "tooltip.itemmagnetmod.magnet_core_stack": "Steuert die maximale Stackgröße von Magnetkernen.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.indestructible": "Magnet ist unzerstörbar",
+  "tooltip.itemmagnetmod.indestructible": "Steuert, ob der Magnet beim Aufheben von Gegenständen kaputtgeht.",
+
+  "option.itemmagnetmod.core_in_bastion": "Magnetkern in Bastionsruinen",
+  "tooltip.itemmagnetmod.core_in_bastion": "Steuert, ob Magnetkerne in Bastionsruinen gefunden werden können.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.core_in_ancient_city": "Magnetkern in antiken Städten",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "Steuert, ob Magnetkerne in antiken Städten gefunden werden können.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.core_in_end_city": "Magnetkern in Endstädten",
+  "tooltip.itemmagnetmod.core_in_end_city": "Steuert, ob Magnetkerne in Endstädten gefunden werden können.\nNeustart erforderlich.",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "Magnetkern in Festungsbibliotheken",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "Steuert, ob Magnetkerne in Festungsbibliotheken gefunden werden können.\nNeustart erforderlich.",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "Dieser Mod fügt dem Spiel einen Item-Magneten hinzu. Er kann ein- und ausgeschaltet werden und verliert für jeden aufgesammelten Gegenstand Haltbarkeit."
+}

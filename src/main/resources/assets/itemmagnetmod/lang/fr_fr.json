@@ -1,0 +1,50 @@
+{
+  "item.itemmagnetmod.item_magnet": "Aimant d'objets",
+  "item.itemmagnetmod.item_magnet.active": "Actif",
+  "item.itemmagnetmod.item_magnet.not_active": "Inactif",
+  "actionbar.itemmagnetmod.item_magnet.active": "Actif",
+  "actionbar.itemmagnetmod.item_magnet.not_active": "Inactif",
+  "item.itemmagnetmod.item_magnet_broken": "Aimant d'objets cassé",
+  "item.itemmagnetmod.magnet_core": "Noyau magnétique",
+  "enchantment.itemmagnetmod.magnetic_reserve": "Réserve magnétique",
+  "enchantment.itemmagnetmod.magnetic_reach": "Portée magnétique",
+  "enchantment.itemmagnetmod.magnetic_pull": "Attraction magnétique",
+
+  "itemgroup.item_magnet": "Item Magnet Mod",
+
+  "title.itemmagnetmod.config": "Configuration de Item Magnet Mod",
+  "category.itemmagnetmod.general": "Général",
+  "category.itemmagnetmod.world_gen": "Génération du monde",
+
+  "option.itemmagnetmod.magnet_distance": "Portée de l'aimant",
+  "tooltip.itemmagnetmod.magnet_distance": "Contrôle la portée de l'aimant.",
+
+  "option.itemmagnetmod.magnet_durability": "Durabilité de l'aimant",
+  "tooltip.itemmagnetmod.magnet_durability": "Contrôle la durabilité de l'aimant.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.iron_ingot_repair_amount": "Réparation avec lingot de fer",
+  "tooltip.itemmagnetmod.iron_ingot_repair_amount": "Contrôle combien de durabilité un lingot de fer restaure dans une enclume.",
+
+  "option.itemmagnetmod.broken_magnet_stack": "Pile d'aimants cassés",
+  "tooltip.itemmagnetmod.broken_magnet_stack": "Contrôle la taille maximale de pile des aimants cassés.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.magnet_core_stack": "Pile de noyaux magnétiques",
+  "tooltip.itemmagnetmod.magnet_core_stack": "Contrôle la taille maximale de pile des noyaux magnétiques.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.indestructible": "Aimant indestructible",
+  "tooltip.itemmagnetmod.indestructible": "Détermine si l'aimant se casse en ramassant des objets.",
+
+  "option.itemmagnetmod.core_in_bastion": "Noyau magnétique dans les bastions",
+  "tooltip.itemmagnetmod.core_in_bastion": "Détermine si un noyau magnétique peut apparaître dans les coffres de bastion.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.core_in_ancient_city": "Noyau magnétique dans les cités antiques",
+  "tooltip.itemmagnetmod.core_in_ancient_city": "Détermine si un noyau magnétique peut apparaître dans les cités antiques.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.core_in_end_city": "Noyau magnétique dans les cités de l'End",
+  "tooltip.itemmagnetmod.core_in_end_city": "Détermine si un noyau magnétique peut apparaître dans les cités de l'End.\nRedémarrage requis.",
+
+  "option.itemmagnetmod.core_in_stronghold_library": "Noyau magnétique dans les bibliothèques de forteresse",
+  "tooltip.itemmagnetmod.core_in_stronghold_library": "Détermine si un noyau magnétique peut apparaître dans les bibliothèques de forteresse.\nRedémarrage requis.",
+
+  "modmenu.descriptionTranslation.itemmagnetmod": "Ce mod ajoute un aimant d'objets au jeu. Il peut être activé ou désactivé et perd de la durabilité à chaque objet ramassé."
+}
