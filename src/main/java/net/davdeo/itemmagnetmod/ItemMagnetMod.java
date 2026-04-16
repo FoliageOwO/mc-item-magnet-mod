@@ -1,5 +1,6 @@
 package net.davdeo.itemmagnetmod;
 
+import net.davdeo.itemmagnetmod.command.ItemMagnetCommands;
 import net.davdeo.itemmagnetmod.component.ModComponents;
 import net.davdeo.itemmagnetmod.datagen.ModLootTableModifier;
 import net.davdeo.itemmagnetmod.event.ModEvents;
@@ -7,6 +8,7 @@ import net.davdeo.itemmagnetmod.item.ModCreativeTab;
 import net.davdeo.itemmagnetmod.item.ModItems;
 import net.davdeo.itemmagnetmod.config.ModConfig;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,8 @@ public class ItemMagnetMod implements ModInitializer {
 		ModItems.registerModItems();
 		ModCreativeTab.registerItemGroups();
 		ModComponents.registerComponents();
+		CommandRegistrationCallback.EVENT.register((dispatcher, context, environment) ->
+				ItemMagnetCommands.register(dispatcher));
 
 		ModEvents.registerModEvents();
 
